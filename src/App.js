@@ -16,6 +16,9 @@ function App() {
   function getAddress(searchString) {
     console.log('it works');
     // const url = //MAP API
+
+    console.log('it works');
+    // const url = //MAP API
   }
 
   fetch()
@@ -31,6 +34,9 @@ function App() {
   //     setSearchString('');
   //   })
   //   .catch(console.error);
+
+  // const url = //MAP API
+  // }
 
   function handleChange(event) {
     setSearchString(event.target.value);
