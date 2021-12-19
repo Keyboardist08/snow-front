@@ -1,24 +1,55 @@
 import logo from './logo.svg';
 import './App.css';
+import Search from './components/Search';
+import MainMap from './components/MainMap';
+import RequestForm from './components/RequestForm';
+import Status from './components/Status';
+import { useState, useEffect } from 'react';
+
 
 function App() {
+
+  const [searchString, setSearchString] = useState('')
+
+  useEffect(() => {
+    getAddress(searchString);
+  }, []);
+
+  function getAddress(searchString) {
+    // const url = //MAP API 
+  }
+
+  fetch () 
+    .then(response => response.json())
+    .then(response => {
+      setSearchString('');
+    })
+    .catch(console.error);
+
+  function handleChange(event) {
+    setSearchString(event.target.value);
+  }
+    
+  function handleSubmit(event) {
+    event.preventDefault();
+    getAddress(searchString);
+  }
+    
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>
+    <nav className="App">
+  
+    </nav>
+    <main>
+      <Search 
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        searchString={searchString}/>
+      
+    </main>
+  </>
+  
+
   );
 }
 
