@@ -14,7 +14,7 @@ function requestForm() {
     }
     return (
         <div>
-   <Button className="btn btn-primary" type="submit" value="Submit" onClick={togglePopup} ><i class="bi bi-geo-alt-fill"></i></Button>
+        <Button className="form-horizontal" className="btn btn-primary" type="submit" value="Submit" onClick={togglePopup} ><i class="bi bi-geo-alt-fill"></i></Button>
             {isOpen && <Popup
                 content={<>
                     <b>Submit Your Request Here</b>
