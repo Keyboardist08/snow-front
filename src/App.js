@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Search from './components/Search';
 import MainMap from './components/MainMap';
 import RequestForm from './components/RequestForm';
 import Status from './components/Status';
 import { useState, useEffect } from 'react';
+
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   }, []);
 
   function getAddress(searchString) {
+    console.log("it works")
     // const url = //MAP API 
   }
 
@@ -45,7 +47,10 @@ function App() {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         searchString={searchString}/>
-      
+      <MainMap />
+      <Status />
+      <RequestForm />
+    
     </main>
   </>
   
