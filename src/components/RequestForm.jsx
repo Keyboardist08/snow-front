@@ -2,6 +2,7 @@
 import React from 'react';
 import {useState} from 'react'
 import Popup from './Popup';
+import { Button } from 'react-bootstrap';
 
 
 function requestForm() {
@@ -13,7 +14,7 @@ function requestForm() {
     }
     return (
         <div>
-            <input type="submit" value="icon" onClick={togglePopup} />
+   <Button className="btn btn-primary" type="submit" value="Submit" onClick={togglePopup} ><i class="bi bi-geo-alt-fill"></i></Button>
             {isOpen && <Popup
                 content={<>
                     <b>Submit Your Request Here</b>

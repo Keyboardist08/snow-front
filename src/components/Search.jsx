@@ -14,9 +14,8 @@ function Search({handleSubmit, handleChange, searchString}) {
             onChange={handleChange}
             value={searchString}
         />
-        <Button className="btn btn-primary" type="submit" value="Submit"><i class="bi bi-geo-alt-fill"></i></Button>
     </form>
-    
+    <Button className="btn btn-primary" type="submit" value="Submit"><i class="bi bi-geo-alt-fill"></i></Button>
 </div>
     );
 }
