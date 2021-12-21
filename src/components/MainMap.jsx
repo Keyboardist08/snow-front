@@ -132,6 +132,7 @@ function MainMap() {
               <Popup>
                 <h3>SNOW REMOVAL REQUESTED AT:</h3>
                 <p>{marker.matchedAddress}</p>
+                <button>DONE</button>
               </Popup>
             </Marker>
           );
