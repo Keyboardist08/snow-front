@@ -1,6 +1,7 @@
 import React from 'react';
 import Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+
 import {
   MapContainer,
   TileLayer,
@@ -22,12 +23,22 @@ Leaflet.Icon.Default.mergeOptions({
 
 function MainMap() {
   const [geoAddress, setGeoAddress] = useState({});
-  const [center, setCenter] = useState([39.952724, -75.163526]);
+  const [center, setCenter] = useState([40.72952499307068, -75.4753812818172]);
   const [testData, setTestData] = useState([]);
   const [inputAddress, setInputAddress] = useState('');
   const inputAddressHandler = (ev) => {
     setInputAddress(ev.target.value.replaceAll(' ', '+'));
   };
+
+  useEffect(() => {
+    fetch('http://localhost:3000/')
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        setTestData(response);
+      });
+  }, []);
 
   function getGeoAddress() {
     fetch(
@@ -41,6 +52,17 @@ function MainMap() {
         setGeoAddress(addressMatch);
         setCenter([addressMatch.coordinates.y, addressMatch.coordinates.x]);
         setTestData([...testData, addressMatch]);
+        return addressMatch;
+      })
+      .then((addressMatch) => {
+        console.log(addressMatch);
+        fetch('http://localhost:3000/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(addressMatch),
+        });
       });
   }
 
@@ -48,7 +70,7 @@ function MainMap() {
   // console.log(SeedData);
   // console.log(inputAddress);
   // console.log(geoAddress);
-  console.log(testData);
+  // console.log(testData);
 
   return (
     <div className='App'>
@@ -91,6 +113,12 @@ function MainMap() {
           {(map) => {
             console.log(map.getCenter());
             map.setView(center);
+            // map.locate({
+            //   position: 'topleft',
+            //   keepCurrentZoomLevel: true,
+            //   setView: 'once',
+            //   initialZoomLevel: false,
+            // });
             return null;
           }}
         </MapConsumer>
