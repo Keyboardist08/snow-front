@@ -1,8 +1,8 @@
 import React from 'react';
 
-function mainMap(props) {
+function mainMap() {
     return (
-        <div>
+        <div className='background-map'>
             
         </div>
     );
