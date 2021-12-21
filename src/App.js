@@ -6,7 +6,6 @@ import RequestForm from './components/RequestForm';
 import Status from './components/Status';
 import { useState, useEffect } from 'react';
 
-
 function App() {
   const [searchString, setSearchString] = useState('');
 
@@ -15,10 +14,8 @@ function App() {
   }, []);
 
   function getAddress(searchString) {
-
-    console.log("it works")
-    // const url = //MAP API 
-
+    console.log('it works');
+    // const url = //MAP API
   }
 
   fetch()
@@ -27,6 +24,13 @@ function App() {
       setSearchString('');
     })
     .catch(console.error);
+
+  // fetch ()
+  //   .then(response => response.json())
+  //   .then(response => {
+  //     setSearchString('');
+  //   })
+  //   .catch(console.error);
 
   function handleChange(event) {
     setSearchString(event.target.value);
@@ -37,30 +41,23 @@ function App() {
     getAddress(searchString);
   }
 
-
-    
   return (
-  <>
-    <nav className="App">
-    <Search 
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        searchString={searchString}/>
-    <RequestForm />
-    </nav>
-    <main>
-      
-      <MainMap />
-   
-    </main>
-    <footer className='bottom'>
-
-    <Status />
-
-    </footer>
-  </>
-  
-
+    <>
+      <nav className='App'>
+        <Search
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          searchString={searchString}
+        />
+        <RequestForm />
+      </nav>
+      <main>
+        <MainMap />
+      </main>
+      <footer className='bottom'>
+        <Status />
+      </footer>
+    </>
   );
 }
 
