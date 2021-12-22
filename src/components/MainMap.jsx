@@ -1,7 +1,6 @@
 import React from 'react';
 import Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-
 import {
   MapContainer,
   TileLayer,
@@ -154,6 +153,7 @@ function MainMap() {
       </button>
     </div>
   );
+
 }
 
 export default MainMap;

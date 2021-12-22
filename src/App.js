@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Search from './components/Search';
 import MainMap from './components/MainMap';
 import RequestForm from './components/RequestForm';
 import Status from './components/Status';
 import { useState, useEffect } from 'react';
+
 
 function App() {
   const [searchString, setSearchString] = useState('');
@@ -14,7 +15,10 @@ function App() {
   }, []);
 
   function getAddress(searchString) {
-    // const url = //MAP API
+
+    console.log("it works")
+    // const url = //MAP API 
+
   }
 
   fetch()
@@ -33,18 +37,26 @@ function App() {
     getAddress(searchString);
   }
 
+
+    
   return (
-    <>
-      <nav className='App'></nav>
-      <main>
-        <Search
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          searchString={searchString}
-        />
-        <MainMap />
-      </main>
-    </>
+  <>
+    <nav className="App">
+  
+    </nav>
+    <main>
+      <Search 
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        searchString={searchString}/>
+      <MainMap />
+      <Status />
+      <RequestForm />
+    
+    </main>
+  </>
+  
+
   );
 }
 
