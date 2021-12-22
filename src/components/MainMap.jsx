@@ -153,7 +153,6 @@ function MainMap() {
       </button>
     </div>
   );
-
 }
 
 export default MainMap;

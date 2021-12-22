@@ -42,18 +42,22 @@ function App() {
   return (
   <>
     <nav className="App">
-  
-    </nav>
-    <main>
-      <Search 
+    <Search 
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         searchString={searchString}/>
+    <RequestForm />
+    </nav>
+    <main>
+      
       <MainMap />
-      <Status />
-      <RequestForm />
-    
+   
     </main>
+    <footer className='bottom'>
+
+    <Status />
+
+    </footer>
   </>
   
 
