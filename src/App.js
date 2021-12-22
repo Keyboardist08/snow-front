@@ -6,6 +6,9 @@ import RequestForm from './components/RequestForm';
 import Status from './components/Status';
 import { useState, useEffect } from 'react';
 
+
+
+
 function App() {
   const [searchString, setSearchString] = useState('');
 
@@ -24,16 +27,6 @@ function App() {
   //     setSearchString('');
   //   })
   //   .catch(console.error);
-
-  // const url = //MAP API
-  // }
-
-  fetch()
-    .then((response) => response.json())
-    .then((response) => {
-      setSearchString('');
-    })
-    .catch(console.error);
 
   function handleChange(event) {
     setSearchString(event.target.value);
