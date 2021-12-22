@@ -10,19 +10,18 @@ import { useState, useEffect } from 'react';
 
 
 function App() {
-
-  const [searchString, setSearchString] = useState('')
+  const [searchString, setSearchString] = useState('');
 
   useEffect(() => {
     getAddress(searchString);
   }, []);
 
   function getAddress(searchString) {
-    console.log("it works")
-    // const url = //MAP API 
+    console.log('it works');
+    // const url = //MAP API
   }
 
-  // fetch () 
+  // fetch ()
   //   .then(response => response.json())
   //   .then(response => {
   //     setSearchString('');
@@ -32,36 +31,29 @@ function App() {
   function handleChange(event) {
     setSearchString(event.target.value);
   }
-    
+
   function handleSubmit(event) {
     event.preventDefault();
     getAddress(searchString);
   }
-    
+
   return (
-
-
-  <>
-    <nav className="App">
-    <Search 
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        searchString={searchString}/>
-    <RequestForm />
-    </nav>
-    <main>
-      
-      <MainMap />
-   
-    </main>
-    <footer className='bottom'>
-
-    <Status />
-
-    </footer>
-  </>
-  
-
+    <>
+      {/* <nav className='App'>
+        <Search
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          searchString={searchString}
+        />
+        <RequestForm />
+      </nav> */}
+      <main>
+        <MainMap />
+      </main>
+      <footer className='bottom'>
+        <Status />
+      </footer>
+    </>
   );
 }
 
