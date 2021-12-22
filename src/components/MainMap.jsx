@@ -73,7 +73,7 @@ function MainMap() {
   // console.log(testData);
 
   return (
-    <div className='App'>
+    <div className='background-map'>
       <h1>Snow Helper Proto</h1>
       <form>
         <label></label>
@@ -97,7 +97,7 @@ function MainMap() {
         // start coordinate
         center={center}
         // shown area on load
-
+        // className='background-map'
         zoom={13}
         scrollWheelZoom={false}
         // needs height to render
@@ -150,12 +150,8 @@ function MainMap() {
           );
         })} */}
       </MapContainer>
-      <button type='submit' onClick={(ev) => ev.preventDefault()}>
-        done
-      </button>
     </div>
   );
-
 }
 
 export default MainMap;

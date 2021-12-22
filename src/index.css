@@ -10,7 +10,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  background-image: url("map.png");
+  /* background-image: url('map.png'); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -19,11 +19,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 .background-map {
   margin: auto;
-
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -42,7 +40,6 @@ nav {
   position: relative;
   display: flex;
   justify-content: center;
-
 }
 input {
   height: 38px;
@@ -92,12 +89,10 @@ input {
   font-size: 20px;
 }
 
-
-
 /*STATUS BOX*/
 .bottom {
   margin: 0;
-  border-color:grey;
+  border-color: grey;
   border-style: double;
   background-color: rgba(255, 255, 255, 0.863);
   display: flex;
@@ -111,7 +106,7 @@ input {
   width: 100%;
   height: 100%;
   background-color: white;
-  border-color:grey;
+  border-color: grey;
   border-style: double;
   border-width: 5px;
   padding: 10px 10px;
