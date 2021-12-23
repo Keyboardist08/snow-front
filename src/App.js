@@ -1,41 +1,48 @@
 // import logo from './logo.svg';
 import './App.css';
-import Search from './components/Search';
+import React from 'react';
+// import Search from './components/Search';
 import MainMap from './components/MainMap';
 import RequestForm from './components/RequestForm';
 import Status from './components/Status';
-import { useState, useEffect } from 'react';
-
+// import { useState, useEffect } from 'react';
+import Drawer from 'react-bottom-drawer';
+import { FcMenu } from "react-icons/fc";
+import {Button} from 'react-bootstrap';
 
 
 
 function App() {
-  const [searchString, setSearchString] = useState('');
+  const [isVisible, setIsVisible] = React.useState(true);
+  const openDrawer = React.useCallback(() => setIsVisible(true), []);
+  const closeDrawer = React.useCallback(() => setIsVisible(false), []);
 
-  useEffect(() => {
-    getAddress(searchString);
-  }, []);
+  // const [searchString, setSearchString] = useState('');
 
-  function getAddress(searchString) {
-    console.log('it works');
-    // const url = //MAP API
-  }
+  // useEffect(() => {
+  //   getAddress(searchString);
+  // }, []);
 
-  // fetch ()
-  //   .then(response => response.json())
-  //   .then(response => {
-  //     setSearchString('');
-  //   })
-  //   .catch(console.error);
+  // function getAddress(searchString) {
+  //   console.log('it works');
+  //   // const url = //MAP API
+  // }
 
-  function handleChange(event) {
-    setSearchString(event.target.value);
-  }
+  // // fetch ()
+  // //   .then(response => response.json())
+  // //   .then(response => {
+  // //     setSearchString('');
+  // //   })
+  // //   .catch(console.error);
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    getAddress(searchString);
-  }
+  // function handleChange(event) {
+  //   setSearchString(event.target.value);
+  // }
+
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   getAddress(searchString);
+  // }
 
   return (
     <>
@@ -47,11 +54,23 @@ function App() {
         />
         <RequestForm />
       </nav> */}
-      <main>
+      <main className='map'>
         <MainMap />
       </main>
       <footer className='bottom'>
-        <Status />
+      <center className='status-bars'>
+      <Button variant="outline-secondary" className='open-btn' onClick={openDrawer}>
+          <FcMenu/>
+      </Button>
+      </center>
+      <Drawer
+        duration={250}
+        hideScrollbars={true}
+        onClose={closeDrawer}
+        isVisible={isVisible}
+      >
+      <Status />
+      </Drawer>
       </footer>
     </>
   );
