@@ -11,6 +11,7 @@ import {
 } from 'react-leaflet';
 // import SeedData from './map-seed.json';
 import { useState, useEffect } from 'react';
+import {FaSnowflake} from 'react-icons/fa'
 
 // redirect icons
 Leaflet.Icon.Default.imagePath = '../node_modules/leaflet';
@@ -74,7 +75,7 @@ function MainMap() {
 
   return (
     <div>
-      <h1 className='title'>Snow Helper Proto</h1>
+      <h1 className='title'>Snow Helper Proto <FaSnowflake></FaSnowflake></h1>
       <form className="App">
         <label></label>
         <input className='input'
