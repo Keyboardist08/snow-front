@@ -1,7 +1,7 @@
 import React from 'react';
 import Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-
+import { Button } from 'react-bootstrap';
 import {
   MapContainer,
   TileLayer,
@@ -11,6 +11,7 @@ import {
 } from 'react-leaflet';
 // import SeedData from './map-seed.json';
 import { useState, useEffect } from 'react';
+import {FaSnowflake} from 'react-icons/fa'
 
 // redirect icons
 Leaflet.Icon.Default.imagePath = '../node_modules/leaflet';
@@ -73,27 +74,28 @@ function MainMap() {
   // console.log(testData);
 
   return (
-    <div className='background-map'>
-      <h1>Snow Helper Proto</h1>
-      <form>
+    <div>
+      <h1 className='title'>Snow Helper Proto <FaSnowflake></FaSnowflake></h1>
+      <form className="App">
         <label></label>
-        <input
+        <input className='input'
           name='input-address'
           id='input-address'
           onChange={(ev) => inputAddressHandler(ev)}
         ></input>
-        <button
+        <Button id="button" className="btn btn-primary"  
+          value="Submit"
           type='submit'
           onClick={(ev) => {
             ev.preventDefault();
             getGeoAddress();
             setInputAddress('');
           }}
-        >
-          Add Request
-        </button>
+        ><i class="bi bi-geo-alt-fill"></i>
+          Request
+        </Button>
       </form>
-      <MapContainer
+      <MapContainer 
         // start coordinate
         center={center}
         // shown area on load
