@@ -11,7 +11,7 @@ import {
 } from 'react-leaflet';
 // import SeedData from './map-seed.json';
 import { useState, useEffect } from 'react';
-import {FaSnowflake} from 'react-icons/fa'
+import { FaSnowflake } from 'react-icons/fa';
 
 // redirect icons
 Leaflet.Icon.Default.imagePath = '../node_modules/leaflet';
@@ -32,7 +32,7 @@ function MainMap() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:3000/')
+    fetch('https://snowfall-back-end.herokuapp.com/')
       .then((response) => {
         return response.json();
       })
@@ -57,7 +57,7 @@ function MainMap() {
       })
       .then((addressMatch) => {
         console.log(addressMatch);
-        fetch('http://localhost:3000/', {
+        fetch('https://snowfall-back-end.herokuapp.com/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -75,27 +75,33 @@ function MainMap() {
 
   return (
     <div>
-      <h1 className='title'>Snow Helper Proto <FaSnowflake></FaSnowflake></h1>
-      <form className="App">
+      <h1 className='title'>
+        Snow Helper Proto <FaSnowflake></FaSnowflake>
+      </h1>
+      <form className='App'>
         <label></label>
-        <input className='input'
+        <input
+          className='input'
           name='input-address'
           id='input-address'
           onChange={(ev) => inputAddressHandler(ev)}
         ></input>
-        <Button id="button" className="btn btn-primary"  
-          value="Submit"
+        <Button
+          id='button'
+          className='btn btn-primary'
+          value='Submit'
           type='submit'
           onClick={(ev) => {
             ev.preventDefault();
             getGeoAddress();
             setInputAddress('');
           }}
-        ><i class="bi bi-geo-alt-fill"></i>
+        >
+          <i class='bi bi-geo-alt-fill'></i>
           Request
         </Button>
       </form>
-      <MapContainer 
+      <MapContainer
         // start coordinate
         center={center}
         // shown area on load
