@@ -9,6 +9,7 @@ function Status() {
   
     return (
       <Container fluid>
+        <h3 className='status-title'>Live Status</h3>
         <Accordion  defaultActiveKey="0">
           <Accordion.Item eventKey="0">
             <Accordion.Header><BsFillGeoAltFill className='pin-0' />00-01 HOUR</Accordion.Header>
