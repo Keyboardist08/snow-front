@@ -123,7 +123,12 @@ input {
 
 }
 .accordion {
-  padding: 30px;
+  padding: 65px;
+  border: double;
+  border-radius: 8px;
+}
+.status-title {
+  text-align: center;
 }
 .pin-0 {
   width: 2em;
@@ -143,7 +148,7 @@ input {
 .pin-18 {
   width: 2em;
   font-size: 1.5em;
-  color: rgb(213, 112, 5);
+  color: rgb(208, 11, 218);
 }
 .pin-incomplete {
   width: 2em;
