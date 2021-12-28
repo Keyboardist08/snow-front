@@ -1,15 +1,12 @@
 @media screen and (min-width: 315px) {
   * {
   box-sizing: border-box;
-}
+  margin: 0;
+  }
 
-#root {
-  display: flex;
-  justify-content: center;
-}
 
 body {
-  overflow: auto;
+  /* overflow: auto; */
   width: 100vw;
   height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -39,6 +36,11 @@ code {
   margin-bottom: 50px;
 }
 
+#map-container {
+  margin: 0;
+  z-index: 0;
+  position: static;
+}
 
 .map {
   z-index: 0;
@@ -123,14 +125,56 @@ input {
 .accordion {
   padding: 30px;
 }
+.pin-0 {
+  width: 2em;
+  font-size: 1.5em;
+  color: rgb(5, 169, 5);
+}
+.pin-1 {
+  width: 2em;
+  font-size: 1.5em;
+  color: rgb(222, 222, 8);
+}
+.pin-6 {
+  width: 2em;
+  font-size: 1.5em;
+  color: orange;
+}
+.pin-18 {
+  width: 2em;
+  font-size: 1.5em;
+  color: rgb(213, 112, 5);
+}
+.pin-incomplete {
+  width: 2em;
+  font-size: 1.5em;
+  color: red;
+}
+.pin-complete {
+  width: 2em;
+  font-size: 1.5em;
+  color: rgb(38, 157, 249);
 
 }
+/* LEAFLET POP UP ---------------------------------------------------*/
 
-/* COLLAPSE */
-/* .content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
-} */
+.leaflet-popup-content {
+  text-align: center;
+  background-color: #045de9;
+  background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+  border-radius: 8px;
+}
+.leaflet-popup-content p {
+  font-size: large;
+  color: white;
+  
+}
+.leaflet-popup-content h3 {
+  color: white;
+}
+
+.leaflet-popup-content button {
+  border-radius: 6px;
+}
+}
+

@@ -101,7 +101,7 @@ function MainMap() {
           Request
         </Button>
       </form>
-      <MapContainer
+      <MapContainer id="map-container"
         // start coordinate
         center={center}
         // shown area on load
@@ -109,7 +109,7 @@ function MainMap() {
         zoom={13}
         scrollWheelZoom={false}
         // needs height to render
-        style={{ height: '50vh', width: '100vw' }}
+        style={{ height: '100vh', width: '100%', }}
       >
         <TileLayer
           // https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png
