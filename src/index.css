@@ -148,7 +148,11 @@ input {
 .pin-18 {
   width: 2em;
   font-size: 1.5em;
+<<<<<<< HEAD
   color: rgb(208, 11, 218);
+=======
+  color: rgb(213, 112, 5);
+>>>>>>> 81b8629 (added react confirm and components and list icons)
 }
 .pin-incomplete {
   width: 2em;
