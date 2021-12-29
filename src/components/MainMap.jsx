@@ -23,24 +23,15 @@ Leaflet.Icon.Default.mergeOptions({
   shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
 });
 
-function MainMap() {
+function MainMap(props) {
   const [geoAddress, setGeoAddress] = useState({});
   const [center, setCenter] = useState([39.9526, -75.1652]);
-  const [testData, setTestData] = useState([]);
+  // const [testData, setTestData] = useState([]);
   const [inputAddress, setInputAddress] = useState("");
   const inputAddressHandler = (ev) => {
     setInputAddress(ev.target.value.replaceAll(" ", "+"));
   };
   console.log(testData);
-  useEffect(() => {
-    fetch("https://snowfall-back-end.herokuapp.com/")
-      .then((response) => {
-        return response.json();
-      })
-      .then((response) => {
-        setTestData(response);
-      });
-  }, []);
 
   function getGeoAddress() {
     fetch(
@@ -54,7 +45,7 @@ function MainMap() {
         addressMatch.timeStamp = Date.now();
         setGeoAddress(addressMatch);
         setCenter([addressMatch.coordinates.y, addressMatch.coordinates.x]);
-        setTestData([...testData, addressMatch]);
+        props.setTestData([...props.testData, addressMatch]);
         return addressMatch;
       })
       .then((addressMatch) => {
