@@ -32,6 +32,15 @@ function MainMap(props) {
     setInputAddress(ev.target.value.replaceAll(' ', '+'));
   };
   console.log(testData);
+  useEffect(() => {
+    fetch('https://snowfall-back-end.herokuapp.com/')
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        setTestData(response);
+      });
+  }, []);
 
   function getGeoAddress() {
     fetch(
