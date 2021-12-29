@@ -1,5 +1,5 @@
 import React from "react";
-import Leaflet from "leaflet";
+import Leaflet, { marker } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { Button } from "react-bootstrap";
 import {
@@ -8,6 +8,7 @@ import {
   Marker,
   Popup,
   MapConsumer,
+  LayerGroup,
 } from "react-leaflet";
 // import SeedData from './map-seed.json';
 import { useState, useEffect } from "react";
@@ -30,7 +31,7 @@ function MainMap() {
   const inputAddressHandler = (ev) => {
     setInputAddress(ev.target.value.replaceAll(" ", "+"));
   };
-
+  console.log(testData);
   useEffect(() => {
     fetch("https://snowfall-back-end.herokuapp.com/")
       .then((response) => {
@@ -50,6 +51,7 @@ function MainMap() {
       })
       .then((response) => {
         const addressMatch = response.result.addressMatches[0];
+        addressMatch.timeStamp = Date.now();
         setGeoAddress(addressMatch);
         setCenter([addressMatch.coordinates.y, addressMatch.coordinates.x]);
         setTestData([...testData, addressMatch]);
@@ -67,6 +69,13 @@ function MainMap() {
       });
   }
 
+  function removeMarker(marker) {
+    setTestData(
+      testData.filter((mrk) => mrk.matchedAddress !== marker.matchedAddress)
+    );
+    console.log(marker, testData);
+    // testData;
+  }
   // confirm data
   // console.log(SeedData);
   // console.log(inputAddress);
@@ -130,22 +139,24 @@ function MainMap() {
             return null;
           }}
         </MapConsumer>
+
         {testData.map((marker) => {
           return (
-            <Marker
-              position={[marker.coordinates.y, marker.coordinates.x]}
-              key={Math.floor(Math.random() * 1000000)}
-              id={Math.floor(Math.random() * 1000000)}
-            >
-              <Popup>
-                <h3>SNOW REMOVAL REQUESTED AT:</h3>
-                <p>{marker.matchedAddress}</p>
-                <button>DONE</button>
-              </Popup>
-            </Marker>
+            <LayerGroup>
+              <Marker
+                position={[marker.coordinates.y, marker.coordinates.x]}
+                key={Math.floor(Math.random() * 1000000)}
+                id={Math.floor(Math.random() * 1000000)}
+              >
+                <Popup>
+                  <h3>SNOW REMOVAL REQUESTED AT:</h3>
+                  <p>{marker.matchedAddress}</p>
+                  <button onClick={() => removeMarker(marker)}>DONE</button>
+                </Popup>
+              </Marker>
+            </LayerGroup>
           );
         })}
-
         {/* {SeedData.map((marker) => {
           return (
             <Marker
