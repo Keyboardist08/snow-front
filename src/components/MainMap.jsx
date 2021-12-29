@@ -26,7 +26,7 @@ Leaflet.Icon.Default.mergeOptions({
 function MainMap(props) {
   const [geoAddress, setGeoAddress] = useState({});
   const [center, setCenter] = useState([39.9526, -75.1652]);
-  // const [testData, setTestData] = useState([]);
+  const [testData, setTestData] = useState([]);
   const [inputAddress, setInputAddress] = useState('');
   const inputAddressHandler = (ev) => {
     setInputAddress(ev.target.value.replaceAll(' ', '+'));
