@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Snow Helper
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Ice fonts](https://see.fontimg.com/api/renderfont4/2z5e/eyJyIjoiZnMiLCJoIjoxNTIsInciOjE2MDAsImZzIjo5NSwiZmdjIjoiIzFBQ0VGNyIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/U25vd2ZhbGw/estave.png)](https://www.fontspace.com/category/ice)
 
-## Available Scripts
+[![Ice fonts](https://see.fontimg.com/api/renderfont4/6YvAv/eyJyIjoiZnMiLCJoIjoxNTIsInciOjE2MDAsImZzIjo5NSwiZmdjIjoiIzFBQ0VGNyIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/U25vd2ZhbGw/frozbite.png)](https://www.fontspace.com/category/ice)
 
-In the project directory, you can run:
+[![Snow fonts](https://see.fontimg.com/api/renderfont4/RMo/eyJyIjoiZnMiLCJoIjoyMjksInciOjE2MDAsImZzIjoxNDMsImZnYyI6IiMxQUNFRjciLCJiZ2MiOiIjRkZGRkZGIiwidCI6MX0/U25vd2ZhbGw/al-snowmen.png)](https://www.fontspace.com/category/snow)
 
-### `npm start`
+[![Ice Cream fonts](https://see.fontimg.com/api/renderfont4/ZVLgB/eyJyIjoiZnMiLCJoIjoxMTcsInciOjE2MDAsImZzIjo3MywiZmdjIjoiIzFBQ0VGNyIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/U25vd2ZhbGw/sweetie-summer-personal-use.png)](https://www.fontspace.com/category/ice-cream)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[![Snow fonts](https://see.fontimg.com/api/renderfont4/RyxW/eyJyIjoiZnMiLCJoIjoxNDksInciOjE2MDAsImZzIjo5MywiZmdjIjoiIzFBQ0VGNyIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/U25vd2ZhbGw/cf-tuques-regular.png)](https://www.fontspace.com/category/snow)
+Need help clearing out some snow? Use Snow Helper to request help from neighbors!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[About](#about)
+<br>
+[Using Snow Helper](#using-snow-helper)
+<br>
+[Features](#features)
+<br>
+[Tech Stack](#tech-stack)
+<br>
+[Contributing](#contributing)
+<br>
+[Credits](#credits)
 
-### `npm test`
+## About
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Using Snow Helper
 
-### `npm run build`
+It's quick and easy to get started with Snow Helper. To begin, just click on the locate icon {insert icon} so that Snow Helper can find your location. Then follow the directions below to either submit a snow removal request or to volunteer to help.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- ### Need to remove some snow?
+      1. Enter your address in the input box and click submit
+      2. The map will place a pin on the map with your address
+      3. Your request will be active for 24 hours and then will be removed
+      4. If someone responds to your request, your request will also be removed
+        - You will not receive a notification. We'll address this in future updates.
+  - ### Example
+- ### Feel like helping out a neighbor?
+      Directions to volunteer to help:
+      1. After finding your location, search the map for requests and view information by clicking on each pin.
+      2. ONLY when you complete a request, click 'done' that's located on the pin information pop-up.
+      3. Snow Helper will ask for a confirmation
+      4. After confirming, the request will be removed
+  - ### Example
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech Stack
 
-### `npm run eject`
+## Contributing
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Credits

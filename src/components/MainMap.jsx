@@ -11,7 +11,7 @@ import {
 } from 'react-leaflet';
 // import SeedData from './map-seed.json';
 import { useState, useEffect } from 'react';
-import {FaSnowflake} from 'react-icons/fa'
+import { FaSnowflake } from 'react-icons/fa';
 
 // redirect icons
 Leaflet.Icon.Default.imagePath = '../node_modules/leaflet';
@@ -24,7 +24,7 @@ Leaflet.Icon.Default.mergeOptions({
 
 function MainMap() {
   const [geoAddress, setGeoAddress] = useState({});
-  const [center, setCenter] = useState([40.72952499307068, -75.4753812818172]);
+  const [center, setCenter] = useState([39.9526, -75.1652]);
   const [testData, setTestData] = useState([]);
   const [inputAddress, setInputAddress] = useState('');
   const inputAddressHandler = (ev) => {
@@ -32,7 +32,7 @@ function MainMap() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:3000/')
+    fetch('https://snowfall-back-end.herokuapp.com/')
       .then((response) => {
         return response.json();
       })
@@ -57,7 +57,7 @@ function MainMap() {
       })
       .then((addressMatch) => {
         console.log(addressMatch);
-        fetch('http://localhost:3000/', {
+        fetch('https://snowfall-back-end.herokuapp.com/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -75,27 +75,33 @@ function MainMap() {
 
   return (
     <div>
-      <h1 className='title'>Snow Helper Proto <FaSnowflake></FaSnowflake></h1>
-      <form className="App">
+      <h1 className='title'>
+        Snow Helper Proto <FaSnowflake></FaSnowflake>
+      </h1>
+      <form className='App'>
         <label></label>
-        <input className='input'
+        <input
+          className='input'
           name='input-address'
           id='input-address'
           onChange={(ev) => inputAddressHandler(ev)}
         ></input>
-        <Button id="button" className="btn btn-primary"  
-          value="Submit"
+        <Button
+          id='button'
+          className='btn btn-primary'
+          value='Submit'
           type='submit'
           onClick={(ev) => {
             ev.preventDefault();
             getGeoAddress();
             setInputAddress('');
           }}
-        ><i class="bi bi-geo-alt-fill"></i>
+        >
+          <i class='bi bi-geo-alt-fill'></i>
           Request
         </Button>
       </form>
-      <MapContainer 
+      <MapContainer id="map-container"
         // start coordinate
         center={center}
         // shown area on load
@@ -103,7 +109,7 @@ function MainMap() {
         zoom={13}
         scrollWheelZoom={false}
         // needs height to render
-        style={{ height: '50vh', width: '100vw' }}
+        style={{ height: '100vh', width: '100%', }}
       >
         <TileLayer
           // https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png
