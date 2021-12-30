@@ -73,6 +73,12 @@ function MainMap() {
   // console.log(geoAddress);
   // console.log(testData);
 
+  const deleteRequest = (marker) => {
+    fetch(`https://snowfall-back-end.herokuapp.com/${marker._id}`, {
+      method: 'DELETE',
+    }).then(setTestData(testData.filter((mrk) => mrk._id !== marker._id)));
+  };
+
   return (
     <div>
       <h1 className='title'>
@@ -101,7 +107,8 @@ function MainMap() {
           Request
         </Button>
       </form>
-      <MapContainer id="map-container"
+      <MapContainer
+        id='map-container'
         // start coordinate
         center={center}
         // shown area on load
@@ -109,7 +116,7 @@ function MainMap() {
         zoom={13}
         scrollWheelZoom={false}
         // needs height to render
-        style={{ height: '100vh', width: '100%', }}
+        style={{ height: '100vh', width: '100%' }}
       >
         <TileLayer
           // https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png
@@ -136,11 +143,12 @@ function MainMap() {
               position={[marker.coordinates.y, marker.coordinates.x]}
               key={Math.floor(Math.random() * 1000000)}
               id={Math.floor(Math.random() * 1000000)}
+              onClick={(ev) => console.log('test')}
             >
               <Popup>
                 <h3>SNOW REMOVAL REQUESTED AT:</h3>
                 <p>{marker.matchedAddress}</p>
-                <button>DONE</button>
+                <button onClick={() => deleteRequest(marker)}>DONE</button>
               </Popup>
             </Marker>
           );
