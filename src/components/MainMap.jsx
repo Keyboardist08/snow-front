@@ -23,7 +23,7 @@ Leaflet.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
 
-function MainMap() {
+function MainMap({ markerData, setMarkerData }) {
   // geo address
   const [geoAddress, setGeoAddress] = useState({});
 
@@ -32,7 +32,7 @@ function MainMap() {
   const [center, setCenter] = useState([39.9526, -75.1652]);
 
   // marker data
-  const [markerData, setMarkerData] = useState([]);
+  // const [markerData, setMarkerData] = useState([]);
 
   // string address from user input
   // 1400 John F Kennedy Blvd 19107
@@ -44,15 +44,15 @@ function MainMap() {
   };
 
   // fetches all markers on load
-  useEffect(() => {
-    fetch('https://snowfall-back-end.herokuapp.com/')
-      .then((response) => {
-        return response.json();
-      })
-      .then((response) => {
-        setMarkerData(response);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('https://snowfall-back-end.herokuapp.com/')
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((response) => {
+  //       setMarkerData(response);
+  //     });
+  // }, []);
 
   // fetches geo address from geocoder API with users string address input (after being formatted)
   // saves to db
