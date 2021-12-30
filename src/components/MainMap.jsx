@@ -9,9 +9,9 @@ import {
   Popup,
   MapConsumer,
 } from 'react-leaflet';
-// import SeedData from './map-seed.json';
 import { useState, useEffect } from 'react';
 import { FaSnowflake } from 'react-icons/fa';
+// import SeedData from './map-seed.json';
 
 // redirect icons due to icons not loading
 // from installing package
@@ -30,9 +30,6 @@ function MainMap({ markerData, setMarkerData }) {
   // map center
   // used to change map location when user searches address
   const [center, setCenter] = useState([39.9526, -75.1652]);
-
-  // marker data
-  // const [markerData, setMarkerData] = useState([]);
 
   // string address from user input
   // 1400 John F Kennedy Blvd 19107

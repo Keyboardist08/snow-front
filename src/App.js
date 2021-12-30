@@ -30,43 +30,8 @@ function App() {
         setMarkerData(response);
       });
   }, []);
-  // const [searchString, setSearchString] = useState('');
-
-  // useEffect(() => {
-  //   getAddress(searchString);
-  // }, []);
-
-  // function getAddress(searchString) {
-  //   console.log('it works');
-  //   // const url = //MAP API
-  // }
-
-  // // fetch ()
-  // //   .then(response => response.json())
-  // //   .then(response => {
-  // //     setSearchString('');
-  // //   })
-  // //   .catch(console.error);
-
-  // function handleChange(event) {
-  //   setSearchString(event.target.value);
-  // }
-
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  //   getAddress(searchString);
-  // }
-
   return (
     <>
-      {/* <nav className='App'>
-        <Search
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          searchString={searchString}
-        />
-        <RequestForm />
-      </nav> */}
       <main className='map'>
         <MainMap markerData={markerData} setMarkerData={setMarkerData} />
       </main>
