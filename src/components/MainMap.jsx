@@ -13,7 +13,8 @@ import {
 import { useState, useEffect } from 'react';
 import { FaSnowflake } from 'react-icons/fa';
 
-// redirect icons
+// redirect icons due to icons not loading
+// from installing package
 Leaflet.Icon.Default.imagePath = '../node_modules/leaflet';
 delete Leaflet.Icon.Default.prototype._getIconUrl;
 Leaflet.Icon.Default.mergeOptions({
@@ -23,24 +24,38 @@ Leaflet.Icon.Default.mergeOptions({
 });
 
 function MainMap() {
+  // geo address
   const [geoAddress, setGeoAddress] = useState({});
+
+  // map center
+  // used to change map location when user searches address
   const [center, setCenter] = useState([39.9526, -75.1652]);
-  const [testData, setTestData] = useState([]);
+
+  // marker data
+  const [markerData, setMarkerData] = useState([]);
+
+  // string address from user input
+  // 1400 John F Kennedy Blvd 19107
   const [inputAddress, setInputAddress] = useState('');
+
+  // formats string address from user input to be passed to geocoder API
   const inputAddressHandler = (ev) => {
     setInputAddress(ev.target.value.replaceAll(' ', '+'));
   };
 
+  // fetches all markers on load
   useEffect(() => {
     fetch('https://snowfall-back-end.herokuapp.com/')
       .then((response) => {
         return response.json();
       })
       .then((response) => {
-        setTestData(response);
+        setMarkerData(response);
       });
   }, []);
 
+  // fetches geo address from geocoder API with users string address input (after being formatted)
+  // saves to db
   function getGeoAddress() {
     fetch(
       `https://sheltered-sea-91500.herokuapp.com/geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=${inputAddress}&benchmark=2020&format=json`
@@ -52,7 +67,7 @@ function MainMap() {
         const addressMatch = response.result.addressMatches[0];
         setGeoAddress(addressMatch);
         setCenter([addressMatch.coordinates.y, addressMatch.coordinates.x]);
-        setTestData([...testData, addressMatch]);
+        setMarkerData([...markerData, addressMatch]);
         return addressMatch;
       })
       .then((addressMatch) => {
@@ -67,16 +82,18 @@ function MainMap() {
       });
   }
 
-  // confirm data
+  // testing to confirm data being passed
   // console.log(SeedData);
   // console.log(inputAddress);
   // console.log(geoAddress);
   // console.log(testData);
 
+  // 'done' button to delete a specific marker
+  // DELETE request to remove from DB and filter to remove from front end
   const deleteRequest = (marker) => {
     fetch(`https://snowfall-back-end.herokuapp.com/${marker._id}`, {
       method: 'DELETE',
-    }).then(setTestData(testData.filter((mrk) => mrk._id !== marker._id)));
+    }).then(setMarkerData(markerData.filter((mrk) => mrk._id !== marker._id)));
   };
 
   return (
@@ -119,6 +136,7 @@ function MainMap() {
         style={{ height: '100vh', width: '100%' }}
       >
         <TileLayer
+          // alternative map layers:
           // https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
           url='https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'
@@ -137,7 +155,7 @@ function MainMap() {
             return null;
           }}
         </MapConsumer>
-        {testData.map((marker) => {
+        {markerData.map((marker) => {
           return (
             <Marker
               position={[marker.coordinates.y, marker.coordinates.x]}
@@ -154,6 +172,7 @@ function MainMap() {
           );
         })}
 
+        {/* start testing */}
         {/* {SeedData.map((marker) => {
           return (
             <Marker
@@ -165,6 +184,7 @@ function MainMap() {
             </Marker>
           );
         })} */}
+        {/* end testing */}
       </MapContainer>
     </div>
   );
