@@ -5,11 +5,18 @@ import { Accordion, Container } from 'react-bootstrap';
 import { BsFillGeoAltFill } from 'react-icons/bs';
 
 function Status({ markerData }) {
-  console.log('start');
-  console.log(markerData);
   if (markerData.length < 1) {
     return null;
   } else {
+    console.log('start');
+    console.log(markerData[0].createdAt);
+
+    const recentListOne = [];
+    const recentListTwo = [];
+    const recentListThree = [];
+    const recentListFour = [];
+    const completedList = [];
+
     return (
       <Container fluid>
         <h3 className='status-title'>Live Status</h3>
