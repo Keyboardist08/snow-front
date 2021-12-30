@@ -56,6 +56,7 @@ function MainMap() {
 
   // fetches geo address from geocoder API with users string address input (after being formatted)
   // saves to db
+  // then re-fetches new list of markers from db
   function getGeoAddress() {
     fetch(
       `https://sheltered-sea-91500.herokuapp.com/geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=${inputAddress}&benchmark=2020&format=json`
@@ -67,7 +68,6 @@ function MainMap() {
         const addressMatch = response.result.addressMatches[0];
         setGeoAddress(addressMatch);
         setCenter([addressMatch.coordinates.y, addressMatch.coordinates.x]);
-        setMarkerData([...markerData, addressMatch]);
         return addressMatch;
       })
       .then((addressMatch) => {
@@ -78,6 +78,15 @@ function MainMap() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(addressMatch),
+        }).then(() => {
+          fetch('https://snowfall-back-end.herokuapp.com/')
+            .then((response) => {
+              return response.json();
+            })
+            .then((response) => {
+              setMarkerData(response);
+              return markerData;
+            });
         });
       });
   }
@@ -156,6 +165,7 @@ function MainMap() {
           }}
         </MapConsumer>
         {markerData.map((marker) => {
+          console.log(markerData);
           return (
             <Marker
               position={[marker.coordinates.y, marker.coordinates.x]}
