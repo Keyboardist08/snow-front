@@ -51,7 +51,7 @@ function App() {
           onClose={closeDrawer}
           isVisible={isVisible}
         >
-          <Status />
+          <Status markerData={markerData} />
         </Drawer>
       </footer>
     </>
