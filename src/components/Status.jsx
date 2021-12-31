@@ -17,58 +17,86 @@ function Status({ markerData }) {
     const recentListFour = [];
     const completedList = [];
 
+    markerData.forEach((marker) => {
+      let currentDate = new Date();
+      let currentUnixDate = currentDate.getTime();
+      let markerDate = new Date(marker.createdAt);
+      let markerUnixDate = markerDate.getTime();
+      console.log(markerUnixDate);
+      console.log(currentUnixDate);
+      if (marker.status) {
+        completedList.push(marker);
+      }
+
+      if (currentUnixDate - markerUnixDate < 3600000) {
+        recentListOne.push(marker);
+      } else if (
+        currentUnixDate - markerUnixDate >= 3600000 &&
+        currentUnixDate - markerUnixDate < 10800000
+      ) {
+        recentListTwo.push(marker);
+      } else if (
+        currentUnixDate - markerUnixDate >= 10800000 &&
+        currentUnixDate - markerUnixDate < 21600000
+      ) {
+        recentListThree.push(marker);
+      } else if (currentUnixDate - markerUnixDate > 21600000) {
+        recentListFour.push(marker);
+      }
+    });
+
     return (
       <Container fluid>
         <h3 className='status-title'>Live Status</h3>
         <Accordion defaultActiveKey='0'>
           <Accordion.Item eventKey='0'>
             <Accordion.Header>
-              <BsFillGeoAltFill className='pin-0' />1 HOUR AGO
+              <BsFillGeoAltFill className='pin-0' />
+              WITHIN 1 HOUR AGO
             </Accordion.Header>
             <Accordion.Body>
               {/* Still need to create checkboxes and color-codes next to each address */}
               <ul>
-                <li>{markerData[0]['matchedAddress']}</li>
-                <li>Address</li>
-                <li>Address</li>
+                {recentListOne.map((marker) => {
+                  return <li>{marker.matchedAddress}</li>;
+                })}
               </ul>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey='1'>
             <Accordion.Header>
-              <BsFillGeoAltFill className='pin-1' />2 - 6 HOURS AGO
+              <BsFillGeoAltFill className='pin-1' />1 - 3 HOURS AGO
             </Accordion.Header>
             <Accordion.Body>
               {/* Still need to create checkboxes and color-codes next to each address */}
               <ul>
-                <li>Address</li>
-                <li>Address</li>
-                <li>Address</li>
+                {recentListTwo.map((marker) => {
+                  return <li>{marker.matchedAddress}</li>;
+                })}
               </ul>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey='2'>
             <Accordion.Header>
-              <BsFillGeoAltFill className='pin-6' />7 - 18 HOURS AGO
+              <BsFillGeoAltFill className='pin-6' />3 - 6 HOURS AGO
             </Accordion.Header>
             <Accordion.Body>
               <ul>
-                <li>Address</li>
-                <li>Address</li>
-                <li>Address</li>
+                {recentListThree.map((marker) => {
+                  return <li>{marker.matchedAddress}</li>;
+                })}
               </ul>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey='3'>
             <Accordion.Header>
-              <BsFillGeoAltFill className='pin-18' />
-              18 - 24 HOURS AGO
+              <BsFillGeoAltFill className='pin-18' />6 HOURS AGO +
             </Accordion.Header>
             <Accordion.Body>
               <ul>
-                <li>Address</li>
-                <li>Address</li>
-                <li>Address</li>
+                {recentListFour.map((marker) => {
+                  return <li>{marker.matchedAddress}</li>;
+                })}
               </ul>
             </Accordion.Body>
           </Accordion.Item>
