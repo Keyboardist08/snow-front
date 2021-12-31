@@ -114,10 +114,8 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
 
   return (
     <div>
-      <form className='App'>
-        <div className='title'>
-          <h1>SNOW SCOOPER</h1>
-        </div>
+      <div className='title'>
+        <h1>SNOW SCOOPER</h1>
         <input
           className='input'
           placeholder='ex: 123 Main St 19147'
@@ -138,7 +136,7 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
         >
           <i class='bi bi-geo-alt-fill'></i>
         </Button>
-      </form>
+      </div>
       <MapContainer
         id='map-container'
         // start coordinate
