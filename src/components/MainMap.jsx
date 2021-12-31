@@ -147,6 +147,7 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
         scrollWheelZoom={false}
         // needs height to render
         style={{ height: '100vh', width: '100%' }}
+        tap={false}
       >
         <TileLayer
           // alternative map layers:

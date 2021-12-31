@@ -1,18 +1,10 @@
-# Snow Helper
+# Help Your Neighbors!
 
-[![Ice fonts](https://see.fontimg.com/api/renderfont4/2z5e/eyJyIjoiZnMiLCJoIjoxNTIsInciOjE2MDAsImZzIjo5NSwiZmdjIjoiIzFBQ0VGNyIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/U25vd2ZhbGw/estave.png)](https://www.fontspace.com/category/ice)
-
-[![Ice fonts](https://see.fontimg.com/api/renderfont4/6YvAv/eyJyIjoiZnMiLCJoIjoxNTIsInciOjE2MDAsImZzIjo5NSwiZmdjIjoiIzFBQ0VGNyIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/U25vd2ZhbGw/frozbite.png)](https://www.fontspace.com/category/ice)
-
-[![Snow fonts](https://see.fontimg.com/api/renderfont4/RMo/eyJyIjoiZnMiLCJoIjoyMjksInciOjE2MDAsImZzIjoxNDMsImZnYyI6IiMxQUNFRjciLCJiZ2MiOiIjRkZGRkZGIiwidCI6MX0/U25vd2ZhbGw/al-snowmen.png)](https://www.fontspace.com/category/snow)
-
-[![Ice Cream fonts](https://see.fontimg.com/api/renderfont4/ZVLgB/eyJyIjoiZnMiLCJoIjoxMTcsInciOjE2MDAsImZzIjo3MywiZmdjIjoiIzFBQ0VGNyIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/U25vd2ZhbGw/sweetie-summer-personal-use.png)](https://www.fontspace.com/category/ice-cream)
-
-[![Snow fonts](https://see.fontimg.com/api/renderfont4/RyxW/eyJyIjoiZnMiLCJoIjoxNDksInciOjE2MDAsImZzIjo5MywiZmdjIjoiIzFBQ0VGNyIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/U25vd2ZhbGw/cf-tuques-regular.png)](https://www.fontspace.com/category/snow)
+[![Ice fonts](https://see.fontimg.com/api/renderfont4/6YvAv/eyJyIjoiZnMiLCJoIjoxNDksInciOjE2MDAsImZzIjo5MywiZmdjIjoiIzFBQ0VGNyIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/U05PVyBTQ09PUEVS/frozbite.png)](https://www.fontspace.com/category/ice)
 
 [About](#about)
 <br>
-[Using Snow Helper](#using-snow-helper)
+[Using Snow Scooper](#using-snow-scooper)
 <br>
 [Features](#features)
 <br>
@@ -30,11 +22,11 @@
 
 ## About
 
-Need help clearing out some snow? Use Snow Helper to request help from neighbors!
+Need help clearing out some snow? Use Snow Scooper to request help from neighbors!
 
-## Using Snow Helper
+## Using Snow Scooper
 
-It's quick and easy to get started with Snow Helper. To begin, just click on the locate icon {insert icon} so that Snow Helper can find your location. Then follow the directions below to either submit a snow removal request or to volunteer to help.
+It's quick and easy to get started with Snow Scooper. To begin, just click on the locate icon {insert icon} so that Snow Scooper can find your location. Then follow the directions below to either submit a snow removal request or to volunteer to help.
 
 ### Need to remove some snow?
 
@@ -53,7 +45,7 @@ It's quick and easy to get started with Snow Helper. To begin, just click on the
 
 1. After finding your location, search the map for requests and view information by clicking on each pin.
 2. ONLY when you complete a request, click 'done' that's located on the pin information pop-up.
-3. Snow Helper will ask for a confirmation
+3. Snow Scooper will ask for a confirmation
 4. After confirming, the request will be removed
 
    ### Example:
@@ -87,7 +79,7 @@ It's quick and easy to get started with Snow Helper. To begin, just click on the
 
 ### Adding Dependencies
 
-Snow Helper uses various dependencies in order to render the map and to optimize the user experience. After forking and cloning, it's necessary to install all of the required dependencies:
+Snow Scooper uses various dependencies in order to render the map and to optimize the user experience. After forking and cloning, it's necessary to install all of the required dependencies:
 <br>
 `npm install`
 
@@ -95,9 +87,9 @@ Snow Helper uses various dependencies in order to render the map and to optimize
 
 In order to place map markers accurately, the user string address captured from the form input, must be converted to geographic coordinates (longitude and latitude), also known as geocoding.
 
-Snow Helper uses the Geocoder API from the [United States Census Bureau]('https://www.census.gov/programs-surveys/geography/technical-documentation/complete-technical-documentation/census-geocoder.html'). But due to CORS policy, you'll have to use a proxy to fetch geocoded data. You can use almost any CORS Proxy Server of your choice, or even create your own. The proxy used in the live Snow Helper application was built from [cors-anywhere]('https://github.com/Rob--W/cors-anywhere').
+Snow Scooper uses the Geocoder API from the [United States Census Bureau]('https://www.census.gov/programs-surveys/geography/technical-documentation/complete-technical-documentation/census-geocoder.html'). But due to CORS policy, you'll have to use a proxy to fetch geocoded data. You can use almost any CORS Proxy Server of your choice, or even create your own. The proxy used in the live Snow Scooper application was built from [cors-anywhere]('https://github.com/Rob--W/cors-anywhere').
 
-Please note that fetch URLs must be changed to a proxy server of your choice in order to operate. The proxy included in `MainMap.jsx` is under strict limitations for the sole purpose of servicing the live version of Snow Helper.
+Please note that fetch URLs must be changed to a proxy server of your choice in order to operate. The proxy included in `MainMap.jsx` is under strict limitations for the sole purpose of servicing the live version of Snow Scooper.
 
 ```javascript
 function getGeoAddress() {

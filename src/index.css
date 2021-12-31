@@ -31,9 +31,9 @@
   }
   .title {
     position: absolute;
-    display: flex;
+    /* display: flex; */
     /* flex-direction: row-reverse; */
-    top: 90px;
+    top: 12px;
     left: 60px;
     /* right: 20px; */
     z-index: 1;
@@ -44,7 +44,7 @@
     font-family: 'Frozbite';
     color: #48dbfb;
     letter-spacing: 3px;
-
+    font-size: 32px;
     /* background: white; */
   }
 
@@ -78,7 +78,8 @@
   }
   input {
     height: 38px;
-    width: 300px;
+    width: 250px;
+    padding-left: 10px;
   }
   #input-address {
     box-shadow: 10px 5px 5px rgb(107, 105, 105);
