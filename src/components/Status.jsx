@@ -17,32 +17,34 @@ function Status({ markerData, setCenter }) {
     const recentListFour = [];
 
     markerData.forEach((marker) => {
-      let currentDate = new Date();
-      let currentUnixDate = currentDate.getTime();
-      let markerDate = new Date(marker.createdAt);
-      let markerUnixDate = markerDate.getTime();
-      console.log(markerUnixDate);
-      console.log(currentUnixDate);
-      console.log(marker.status);
+      if (marker.status === false) {
+        let currentDate = new Date();
+        let currentUnixDate = currentDate.getTime();
+        let markerDate = new Date(marker.createdAt);
+        let markerUnixDate = markerDate.getTime();
+        console.log(markerUnixDate);
+        console.log(currentUnixDate);
+        console.log(marker.status);
 
-      // within 1 hour
-      if (currentUnixDate - markerUnixDate < 1000 * 60 * 60 * 1) {
-        recentListOne.push(marker);
-      } else if (
-        // within 1 - 3 hours
-        currentUnixDate - markerUnixDate >= 1000 * 60 * 60 * 1 &&
-        currentUnixDate - markerUnixDate < 1000 * 60 * 60 * 3
-      ) {
-        recentListTwo.push(marker);
-      } else if (
-        // within 3 - 6 hours
-        currentUnixDate - markerUnixDate >= 1000 * 60 * 60 * 3 &&
-        currentUnixDate - markerUnixDate < 1000 * 60 * 60 * 6
-      ) {
-        recentListThree.push(marker);
-      } else if (currentUnixDate - markerUnixDate > 1000 * 60 * 60 * 6) {
-        // 6 hours +
-        recentListFour.push(marker);
+        // within 1 hour
+        if (currentUnixDate - markerUnixDate < 1000 * 60 * 60 * 1) {
+          recentListOne.push(marker);
+        } else if (
+          // within 1 - 3 hours
+          currentUnixDate - markerUnixDate >= 1000 * 60 * 60 * 1 &&
+          currentUnixDate - markerUnixDate < 1000 * 60 * 60 * 3
+        ) {
+          recentListTwo.push(marker);
+        } else if (
+          // within 3 - 6 hours
+          currentUnixDate - markerUnixDate >= 1000 * 60 * 60 * 3 &&
+          currentUnixDate - markerUnixDate < 1000 * 60 * 60 * 6
+        ) {
+          recentListThree.push(marker);
+        } else if (currentUnixDate - markerUnixDate > 1000 * 60 * 60 * 6) {
+          // 6 hours +
+          recentListFour.push(marker);
+        }
       }
     });
 
