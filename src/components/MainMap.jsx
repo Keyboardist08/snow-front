@@ -11,6 +11,8 @@ import {
 } from 'react-leaflet';
 import { useState, useEffect } from 'react';
 import { FaSnowflake } from 'react-icons/fa';
+import '../resources/Frozbite-6YvAv.ttf';
+
 // import SeedData from './map-seed.json';
 
 // redirect icons due to icons not loading
@@ -114,10 +116,7 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
     <div>
       <form className='App'>
         <div className='title'>
-          <img
-            src='https://see.fontimg.com/api/renderfont4/nRYmg/eyJyIjoiZnMiLCJoIjo1MSwidyI6MTAwMCwiZnMiOjUxLCJmZ2MiOiIjRjdGN0Y3IiwiYmdjIjoiI0E2Q0VFQSIsInQiOjF9/U25vdyBIZWxwZXI/firstsnow.png'
-            alt='snowfall'
-          ></img>
+          <h1>SNOW SCOOPER</h1>
         </div>
         <input
           className='input'
