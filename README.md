@@ -46,8 +46,32 @@ It's quick and easy to get started with Snow Helper. To begin, just click on the
 
 ## Features
 
+- Interactive map
+- Address search
+- Snow request status indicators
+- Up to date information
+- No sign up required!
+
 ## Tech Stack
 
+- Node.js
+- Express.js
+- React.js
+- Bootstrap
+- MongoDB
+- Mongoose
+
+## Tools Used
+
+- Figma
+- Postman
+
 ## Contributing
+
+We're always looking for feedback, so feel free to get in touch with us here:
+
+https://github.com/Keyboardist08/snow-front
+
+If you run into anything while using our app, we encourage you to open an issue. Thanks for your support!
 
 ## Credits
