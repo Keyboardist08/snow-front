@@ -26,6 +26,7 @@ function Status({ markerData }) {
       console.log(currentUnixDate);
       console.log(marker.status);
       // if marker status = true
+      // rolling 24 hours
       if (marker.status) {
         completedList.push(marker);
       }
@@ -44,10 +45,9 @@ function Status({ markerData }) {
         currentUnixDate - markerUnixDate >= 1000 * 60 * 60 * 3 &&
         currentUnixDate - markerUnixDate < 1000 * 60 * 60 * 6
       ) {
-        // 4 hours +
         recentListThree.push(marker);
       } else if (currentUnixDate - markerUnixDate > 1000 * 60 * 60 * 6) {
-        // rolling 24hr completed list
+        // 6 hours +
         recentListFour.push(marker);
       }
     });
@@ -127,9 +127,9 @@ function Status({ markerData }) {
             </Accordion.Header>
             <Accordion.Body>
               <ul>
-                <li>Address</li>
-                <li>Address</li>
-                <li>Address</li>
+                {completedList.map((marker) => {
+                  return <li>{marker.matchedAddress}</li>;
+                })}
               </ul>
             </Accordion.Body>
           </Accordion.Item>
