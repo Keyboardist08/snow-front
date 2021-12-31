@@ -108,7 +108,7 @@ function Status({ markerData, setCenter }) {
           </Accordion.Item>
           <Accordion.Item eventKey='3'>
             <Accordion.Header>
-              <BsFillGeoAltFill className='pin-18' />6 HOURS AGO +
+              <BsFillGeoAltFill className='pin-18' />6 + HOURS AGO
             </Accordion.Header>
             <Accordion.Body>
               <ul>
