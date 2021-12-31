@@ -24,6 +24,8 @@ function Status({ markerData }) {
       let markerUnixDate = markerDate.getTime();
       console.log(markerUnixDate);
       console.log(currentUnixDate);
+      console.log(marker.status);
+      // if marker status = true
       if (marker.status) {
         completedList.push(marker);
       }
