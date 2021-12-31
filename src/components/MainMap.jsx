@@ -116,6 +116,10 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
     <div>
       <div className='title'>
         <h1>SNOW SCOOPER</h1>
+        <p>
+          Can't shovel all that snow outside? Ask a neighbor for some help! For
+          anyone else looking to help, use the map below to locate requests.
+        </p>
         <input
           className='input'
           placeholder='ex: 123 Main St 19147'
