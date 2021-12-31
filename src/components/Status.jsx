@@ -145,7 +145,11 @@ function Status({ markerData, setCenter }) {
                 {/* rolling 24 hr list of requests that have been completed */}
                 {markerData.map((marker) => {
                   if (marker.status === true) {
-                    return <li>{marker.matchedAddress}</li>;
+                    return (
+                      <li onClick={() => recenterMap(marker)}>
+                        {marker.matchedAddress}
+                      </li>
+                    );
                   }
                 })}
               </ul>
