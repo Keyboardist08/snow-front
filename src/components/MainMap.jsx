@@ -119,7 +119,6 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
             alt='snowfall'
           ></img>
         </div>
-        <label></label>
         <input
           className='input'
           placeholder='ex: 123 Main St 19147'
