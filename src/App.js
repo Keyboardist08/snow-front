@@ -19,6 +19,7 @@ function App() {
   const closeDrawer = React.useCallback(() => setIsVisible(false), []);
   // marker data
   const [markerData, setMarkerData] = useState([]);
+  const [center, setCenter] = useState([39.9526, -75.1652]);
 
   // fetches all markers on load
   useEffect(() => {
@@ -33,7 +34,12 @@ function App() {
   return (
     <>
       <main className='map'>
-        <MainMap markerData={markerData} setMarkerData={setMarkerData} />
+        <MainMap
+          markerData={markerData}
+          setMarkerData={setMarkerData}
+          center={center}
+          setCenter={setCenter}
+        />
       </main>
       <footer className='bottom'>
         <center className='status-bars'>

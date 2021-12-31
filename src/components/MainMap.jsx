@@ -23,13 +23,13 @@ Leaflet.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
 
-function MainMap({ markerData, setMarkerData }) {
+function MainMap({ markerData, setMarkerData, center, setCenter }) {
   // geo address
   const [geoAddress, setGeoAddress] = useState({});
 
   // map center
   // used to change map location when user searches address
-  const [center, setCenter] = useState([39.9526, -75.1652]);
+  // const [center, setCenter] = useState([39.9526, -75.1652]);
 
   // string address from user input
   // 1400 John F Kennedy Blvd 19107
