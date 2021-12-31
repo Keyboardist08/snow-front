@@ -4,7 +4,7 @@ import React from 'react';
 import { Accordion, Container } from 'react-bootstrap';
 import { BsFillGeoAltFill } from 'react-icons/bs';
 
-function Status({ markerData }) {
+function Status({ markerData, setCenter }) {
   if (markerData.length < 1) {
     return null;
   } else {
@@ -46,6 +46,11 @@ function Status({ markerData }) {
       }
     });
 
+    // recenter map on request link click in list
+    function recenterMap(marker) {
+      setCenter([marker.coordinates.y, marker.coordinates.x]);
+    }
+
     return (
       <Container fluid>
         <h3 className='status-title'>Live Status</h3>
@@ -59,7 +64,11 @@ function Status({ markerData }) {
               {/* Still need to create checkboxes and color-codes next to each address */}
               <ul>
                 {recentListOne.map((marker) => {
-                  return <li>{marker.matchedAddress}</li>;
+                  return (
+                    <li onClick={() => recenterMap(marker)}>
+                      {marker.matchedAddress}
+                    </li>
+                  );
                 })}
               </ul>
             </Accordion.Body>
@@ -72,7 +81,11 @@ function Status({ markerData }) {
               {/* Still need to create checkboxes and color-codes next to each address */}
               <ul>
                 {recentListTwo.map((marker) => {
-                  return <li>{marker.matchedAddress}</li>;
+                  return (
+                    <li onClick={() => recenterMap(marker)}>
+                      {marker.matchedAddress}
+                    </li>
+                  );
                 })}
               </ul>
             </Accordion.Body>
@@ -84,19 +97,27 @@ function Status({ markerData }) {
             <Accordion.Body>
               <ul>
                 {recentListThree.map((marker) => {
-                  return <li>{marker.matchedAddress}</li>;
+                  return (
+                    <li onClick={() => recenterMap(marker)}>
+                      {marker.matchedAddress}
+                    </li>
+                  );
                 })}
               </ul>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey='3'>
             <Accordion.Header>
-              <BsFillGeoAltFill className='pin-18' />6 HOURS AGO +
+              <BsFillGeoAltFill className='pin-18' />6 + HOURS AGO
             </Accordion.Header>
             <Accordion.Body>
               <ul>
                 {recentListFour.map((marker) => {
-                  return <li>{marker.matchedAddress}</li>;
+                  return (
+                    <li onClick={() => recenterMap(marker)}>
+                      {marker.matchedAddress}
+                    </li>
+                  );
                 })}
               </ul>
             </Accordion.Body>
@@ -124,7 +145,11 @@ function Status({ markerData }) {
                 {/* rolling 24 hr list of requests that have been completed */}
                 {markerData.map((marker) => {
                   if (marker.status === true) {
-                    return <li>{marker.matchedAddress}</li>;
+                    return (
+                      <li onClick={() => recenterMap(marker)}>
+                        {marker.matchedAddress}
+                      </li>
+                    );
                   }
                 })}
               </ul>
