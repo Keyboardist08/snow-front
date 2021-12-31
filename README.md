@@ -9,7 +9,6 @@
 [![Ice Cream fonts](https://see.fontimg.com/api/renderfont4/ZVLgB/eyJyIjoiZnMiLCJoIjoxMTcsInciOjE2MDAsImZzIjo3MywiZmdjIjoiIzFBQ0VGNyIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/U25vd2ZhbGw/sweetie-summer-personal-use.png)](https://www.fontspace.com/category/ice-cream)
 
 [![Snow fonts](https://see.fontimg.com/api/renderfont4/RyxW/eyJyIjoiZnMiLCJoIjoxNDksInciOjE2MDAsImZzIjo5MywiZmdjIjoiIzFBQ0VGNyIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/U25vd2ZhbGw/cf-tuques-regular.png)](https://www.fontspace.com/category/snow)
-Need help clearing out some snow? Use Snow Helper to request help from neighbors!
 
 [About](#about)
 <br>
@@ -30,6 +29,8 @@ Need help clearing out some snow? Use Snow Helper to request help from neighbors
 [Credits](#credits)
 
 ## About
+
+Need help clearing out some snow? Use Snow Helper to request help from neighbors!
 
 ## Using Snow Helper
 
@@ -98,40 +99,41 @@ Snow Helper uses the Geocoder API from the [United States Census Bureau]('https:
 
 Please note that fetch URLs must be changed to a proxy server of your choice in order to operate. The proxy included in `MainMap.jsx` is under strict limitations for the sole purpose of servicing the live version of Snow Helper.
 
-```
+```javascript
 function getGeoAddress() {
-    fetch(
-      `https://sheltered-sea-91500.herokuapp.com/geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=${inputAddress}&benchmark=2020&format=json`
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((response) => {
-        const addressMatch = response.result.addressMatches[0];
-        setGeoAddress(addressMatch);
-        setCenter([addressMatch.coordinates.y, addressMatch.coordinates.x]);
-        return addressMatch;
-      })
-      .then((addressMatch) => {
-        console.log(addressMatch);
-        fetch('https://snowfall-back-end.herokuapp.com/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(addressMatch),
-        }).then(() => {
-          fetch('https://snowfall-back-end.herokuapp.com/')
-            .then((response) => {
-              return response.json();
-            })
-            .then((response) => {
-              setMarkerData(response);
-              return markerData;
-            });
-        });
+  // REPLACE WITH YOUR PROXY BEFORE /geocoding.geo.census.gov/...
+  fetch(
+    `https://sheltered-sea-91500.herokuapp.com/geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=${inputAddress}&benchmark=2020&format=json`
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .then((response) => {
+      const addressMatch = response.result.addressMatches[0];
+      setGeoAddress(addressMatch);
+      setCenter([addressMatch.coordinates.y, addressMatch.coordinates.x]);
+      return addressMatch;
+    })
+    .then((addressMatch) => {
+      console.log(addressMatch);
+      fetch('https://snowfall-back-end.herokuapp.com/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(addressMatch),
+      }).then(() => {
+        fetch('https://snowfall-back-end.herokuapp.com/')
+          .then((response) => {
+            return response.json();
+          })
+          .then((response) => {
+            setMarkerData(response);
+            return markerData;
+          });
       });
-  }
+    });
+}
 ```
 
 ## Tech Stack
