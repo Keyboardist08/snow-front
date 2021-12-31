@@ -112,13 +112,14 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
 
   return (
     <div>
-      <h1 className='title'>
-        Snow Helper Proto <FaSnowflake></FaSnowflake>
-      </h1>
       <form className='App'>
+      <div className='title'>
+      <img src="https://see.fontimg.com/api/renderfont4/nRYmg/eyJyIjoiZnMiLCJoIjo1MSwidyI6MTAwMCwiZnMiOjUxLCJmZ2MiOiIjRjdGN0Y3IiwiYmdjIjoiI0E2Q0VFQSIsInQiOjF9/U25vdyBIZWxwZXI/firstsnow.png" alt='snowfall'></img>
+      </div>
         <label></label>
         <input
           className='input'
+          placeholder='TYPE YOUR ADDRESS HERE'
           name='input-address'
           id='input-address'
           onChange={(ev) => inputAddressHandler(ev)}
@@ -148,7 +149,8 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
         scrollWheelZoom={false}
         // needs height to render
         style={{ height: '100vh', width: '100%' }}
-      >
+      > 
+       
         <TileLayer
           // alternative map layers:
           // https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png

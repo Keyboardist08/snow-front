@@ -4,9 +4,7 @@
   margin: 0;
   }
 
-
 body {
-  /* overflow: auto; */
   width: 100vw;
   height: 100vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -15,12 +13,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@media screen and (max-width: 600px) {
+  .title img {
+    height: calc(100% - 20%); 
+    width: calc(100% - 20%);
+  }
+}
 .title {
-  background-color:  rgba(180, 198, 221, 0.863);
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  padding: 10px;
+  position: absolute;
+  display: flex;
+  flex-direction: row-reverse;
+  top: 90px;
+  left: 30%;
+  right: 20px;
+  z-index: 2;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -28,12 +35,12 @@ code {
 }
 
 .App {
+  background-color: rgb(224, 224, 224);
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 50px;
+  padding: 20px;
 }
 
 #map-container {
@@ -54,9 +61,12 @@ input {
   height: 38px;
   width: 300px;
 }
-
+#input-address {
+  box-shadow: 10px 5px 5px rgb(107, 105, 105);
+}
 #button {
-  display: flex;
+  height: 38px;
+  box-shadow: 10px 5px 5px rgb(107, 105, 105);
 }
 
 /* Popup style ---------------------------------------- */ 
@@ -122,10 +132,15 @@ input {
   /* border-width: 5px; */
 
 }
+
+.container-fluid {
+  padding-bottom: 20px
+}
 .accordion {
-  padding: 65px;
+  padding: 10px;
   border: double;
-  border-radius: 8px;
+  border-color: grey;
+  border-radius: 12px;
 }
 .status-title {
   text-align: center;
@@ -148,13 +163,9 @@ input {
 .pin-18 {
   width: 2em;
   font-size: 1.5em;
-  color: rgb(208, 11, 218);
+  color: rgb(231, 13, 13);
 }
-.pin-incomplete {
-  width: 2em;
-  font-size: 1.5em;
-  color: red;
-}
+
 .pin-complete {
   width: 2em;
   font-size: 1.5em;
