@@ -28,19 +28,24 @@ function Status({ markerData }) {
         completedList.push(marker);
       }
 
-      if (currentUnixDate - markerUnixDate < 3600000) {
+      // within 1 hour
+      if (currentUnixDate - markerUnixDate < 1000 * 60 * 60 * 1) {
         recentListOne.push(marker);
       } else if (
-        currentUnixDate - markerUnixDate >= 3600000 &&
-        currentUnixDate - markerUnixDate < 10800000
+        // within 1 - 3 hours
+        currentUnixDate - markerUnixDate >= 1000 * 60 * 60 * 1 &&
+        currentUnixDate - markerUnixDate < 1000 * 60 * 60 * 3
       ) {
         recentListTwo.push(marker);
       } else if (
-        currentUnixDate - markerUnixDate >= 10800000 &&
-        currentUnixDate - markerUnixDate < 21600000
+        // within 3 - 6 hours
+        currentUnixDate - markerUnixDate >= 1000 * 60 * 60 * 3 &&
+        currentUnixDate - markerUnixDate < 1000 * 60 * 60 * 6
       ) {
+        // 4 hours +
         recentListThree.push(marker);
-      } else if (currentUnixDate - markerUnixDate > 21600000) {
+      } else if (currentUnixDate - markerUnixDate > 1000 * 60 * 60 * 6) {
+        // rolling 24hr completed list
         recentListFour.push(marker);
       }
     });
