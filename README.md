@@ -17,6 +17,10 @@ Need help clearing out some snow? Use Snow Helper to request help from neighbors
 <br>
 [Features](#features)
 <br>
+[Installation](#installation)
+<br>
+[Setup](#setup)
+<br>
 [Tech Stack](#tech-stack)
 <br>
 [Additional Tools Used](#additional-tools-used)
@@ -77,6 +81,58 @@ It's quick and easy to get started with Snow Helper. To begin, just click on the
   - The markers you see on the map and lists are 100% user reported and are always updated live
 - No sign up required!
   - Help shouldn't be hindering in any way! There's no sign-up required and we don't collect any information about you other than your location for the map to function.
+
+## Installation
+
+### Adding Dependencies
+
+Snow Helper uses various dependencies in order to render the map and to optimize the user experience. After forking and cloning, it's necessary to install all of the required dependencies:
+<br>
+`npm install`
+
+### Setup Proxy
+
+In order to place map markers accurately, the user string address captured from the form input, must be converted to geographic coordinates (longitude and latitude), also known as geocoding.
+
+Snow Helper uses the Geocoder API from the [United States Census Bureau]('https://www.census.gov/programs-surveys/geography/technical-documentation/complete-technical-documentation/census-geocoder.html'). But due to CORS policy, you'll have to use a proxy to fetch geocoded data. You can use almost any CORS Proxy Server of your choice, or even create your own. The proxy used in the live Snow Helper application was built from [cors-anywhere]('https://github.com/Rob--W/cors-anywhere').
+
+Please note that fetch URLs must be changed to a proxy server of your choice in order to operate. The proxy included in `MainMap.jsx` is under strict limitations for the sole purpose of servicing the live version of Snow Helper.
+
+```
+function getGeoAddress() {
+    fetch(
+      `https://sheltered-sea-91500.herokuapp.com/geocoding.geo.census.gov/geocoder/locations/onelineaddress?address=${inputAddress}&benchmark=2020&format=json`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((response) => {
+        const addressMatch = response.result.addressMatches[0];
+        setGeoAddress(addressMatch);
+        setCenter([addressMatch.coordinates.y, addressMatch.coordinates.x]);
+        return addressMatch;
+      })
+      .then((addressMatch) => {
+        console.log(addressMatch);
+        fetch('https://snowfall-back-end.herokuapp.com/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(addressMatch),
+        }).then(() => {
+          fetch('https://snowfall-back-end.herokuapp.com/')
+            .then((response) => {
+              return response.json();
+            })
+            .then((response) => {
+              setMarkerData(response);
+              return markerData;
+            });
+        });
+      });
+  }
+```
 
 ## Tech Stack
 
