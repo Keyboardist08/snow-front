@@ -96,10 +96,18 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
 
   // 'done' button to delete a specific marker
   // DELETE request to remove from DB and filter to remove from front end
-  const deleteRequest = (marker) => {
+  const completeRequest = (marker) => {
+    // fetch(`https://snowfall-back-end.herokuapp.com/${marker._id}`, {
+    //   method: 'DELETE',
+    // }).then(setMarkerData(markerData.filter((mrk) => mrk._id !== marker._id)));
+
     fetch(`https://snowfall-back-end.herokuapp.com/${marker._id}`, {
-      method: 'DELETE',
-    }).then(setMarkerData(markerData.filter((mrk) => mrk._id !== marker._id)));
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ status: true }),
+    }).then(setMarkerData(markerData.filter((mrk) => mrk.status === true)));
   };
 
   return (
@@ -162,21 +170,22 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
           }}
         </MapConsumer>
         {markerData.map((marker) => {
-          console.log(markerData);
-          return (
-            <Marker
-              position={[marker.coordinates.y, marker.coordinates.x]}
-              key={Math.floor(Math.random() * 1000000)}
-              id={Math.floor(Math.random() * 1000000)}
-              onClick={(ev) => console.log('test')}
-            >
-              <Popup>
-                <h3>SNOW REMOVAL REQUESTED AT:</h3>
-                <p>{marker.matchedAddress}</p>
-                <button onClick={() => deleteRequest(marker)}>DONE</button>
-              </Popup>
-            </Marker>
-          );
+          if (marker.status === false) {
+            return (
+              <Marker
+                position={[marker.coordinates.y, marker.coordinates.x]}
+                key={Math.floor(Math.random() * 1000000)}
+                id={Math.floor(Math.random() * 1000000)}
+                onClick={(ev) => console.log('test')}
+              >
+                <Popup>
+                  <h3>SNOW REMOVAL REQUESTED AT:</h3>
+                  <p>{marker.matchedAddress}</p>
+                  <button onClick={() => completeRequest(marker)}>DONE</button>
+                </Popup>
+              </Marker>
+            );
+          }
         })}
 
         {/* start testing */}

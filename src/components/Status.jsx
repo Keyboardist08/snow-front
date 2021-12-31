@@ -15,7 +15,6 @@ function Status({ markerData }) {
     const recentListTwo = [];
     const recentListThree = [];
     const recentListFour = [];
-    const completedList = [];
 
     markerData.forEach((marker) => {
       let currentDate = new Date();
@@ -25,11 +24,6 @@ function Status({ markerData }) {
       console.log(markerUnixDate);
       console.log(currentUnixDate);
       console.log(marker.status);
-      // if marker status = true
-      // rolling 24 hours
-      if (marker.status) {
-        completedList.push(marker);
-      }
 
       // within 1 hour
       if (currentUnixDate - markerUnixDate < 1000 * 60 * 60 * 1) {
@@ -127,8 +121,11 @@ function Status({ markerData }) {
             </Accordion.Header>
             <Accordion.Body>
               <ul>
-                {completedList.map((marker) => {
-                  return <li>{marker.matchedAddress}</li>;
+                {/* rolling 24 hr list of requests that have been completed */}
+                {markerData.map((marker) => {
+                  if (marker.status === true) {
+                    return <li>{marker.matchedAddress}</li>;
+                  }
                 })}
               </ul>
             </Accordion.Body>
