@@ -12,6 +12,8 @@ import { Button } from 'react-bootstrap';
 import DoneButton from './components/DoneButton';
 import Confirmation from './components/Confirmation';
 import { useEffect, useState } from 'react';
+import snowflake from './resources/snowflake.png';
+import snowflakeBlue from './resources/snowflake-blue.png';
 
 function App() {
   const [isVisible, setIsVisible] = React.useState(true);
@@ -48,7 +50,8 @@ function App() {
             className='open-btn'
             onClick={openDrawer}
           >
-            <FcMenu />
+            {/* <FcMenu /> */}
+            <img src={snowflakeBlue} />
           </Button>
         </center>
         <Drawer
