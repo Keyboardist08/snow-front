@@ -63,8 +63,16 @@
   #locate-btn {
     position: absolute;
     top: 85px;
-    left: 15px;
+    left: 10px;
     z-index: 999;
+    /* background: none; */
+    border-radius: 100%;
+    /* width: 30px; */
+    padding: 1px;
+  }
+
+  #locate-btn img {
+    width: 30px;
   }
 
   code {
@@ -157,10 +165,10 @@
     bottom: 0;
     right: 0;
     border-color: grey;
-    /* border-style: double; */
+    border-style: double;
     height: 55px;
-    /* background-color: rgba(231, 234, 238, 0.863); */
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(231, 234, 238, 0.863);
+    /* background-color: rgba(0, 0, 0, 0.7); */
     display: flex;
     justify-content: center;
     position: fixed;

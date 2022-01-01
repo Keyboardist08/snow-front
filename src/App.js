@@ -50,8 +50,8 @@ function App() {
             className='open-btn'
             onClick={openDrawer}
           >
-            {/* <FcMenu /> */}
-            <img src={snowflakeBlue} />
+            <FcMenu />
+            {/* <img src={snowflakeBlue} /> */}
           </Button>
         </center>
         <Drawer
