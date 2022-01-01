@@ -60,6 +60,13 @@
     border-bottom-left-radius: 6px;
   }
 
+  #locate-btn {
+    position: absolute;
+    top: 85px;
+    left: 15px;
+    z-index: 999;
+  }
+
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
