@@ -174,10 +174,10 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
           {(map) => {
             console.log(map.getCenter());
             map.setView(center);
-            map.locate({
-              setView: true,
-              maxZoom: 14,
-            });
+            // map.locate({
+            //   setView: true,
+            //   maxZoom: 14,
+            // });
 
             return (
               <button id='locate-btn'>
