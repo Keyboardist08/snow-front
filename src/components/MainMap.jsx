@@ -12,6 +12,8 @@ import {
 import { useState, useEffect } from 'react';
 import { FaSnowflake } from 'react-icons/fa';
 import '../resources/Frozbite-6YvAv.ttf';
+import aim from '../resources/aim.png';
+import { render } from '@testing-library/react';
 
 // import SeedData from './map-seed.json';
 
@@ -112,6 +114,14 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
     }).then(setMarkerData(markerData.filter((mrk) => mrk.status === true)));
   };
 
+  // locate user
+  function locateUser(map) {
+    map.locate({
+      setView: true,
+      maxZoom: 14,
+    });
+  }
+
   return (
     <div>
       <div className='title'>
@@ -164,13 +174,20 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
           {(map) => {
             console.log(map.getCenter());
             map.setView(center);
-            // map.locate({
-            //   position: 'topleft',
-            //   keepCurrentZoomLevel: true,
-            //   setView: 'once',
-            //   initialZoomLevel: false,
-            // });
-            return null;
+            map.locate({
+              setView: true,
+              maxZoom: 14,
+            });
+
+            return (
+              <button id='locate-btn'>
+                <img
+                  src={aim}
+                  alt='locate user icon'
+                  onTouchStart={() => locateUser(map)}
+                />
+              </button>
+            );
           }}
         </MapConsumer>
         {markerData.map((marker) => {

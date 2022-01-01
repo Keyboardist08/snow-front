@@ -60,6 +60,21 @@
     border-bottom-left-radius: 6px;
   }
 
+  #locate-btn {
+    position: absolute;
+    top: 85px;
+    left: 10px;
+    z-index: 999;
+    /* background: none; */
+    border-radius: 100%;
+    /* width: 30px; */
+    padding: 1px;
+  }
+
+  #locate-btn img {
+    width: 30px;
+  }
+
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
@@ -151,12 +166,24 @@
     right: 0;
     border-color: grey;
     border-style: double;
+    height: 55px;
     background-color: rgba(231, 234, 238, 0.863);
+    /* background-color: rgba(0, 0, 0, 0.7); */
     display: flex;
     justify-content: center;
     position: fixed;
     z-index: 999 !important;
+    padding: 5px;
   }
+
+  .bottom button {
+    background: white;
+  }
+
+  .bottom button img {
+    height: 32px;
+  }
+
   .container {
     /* width: 100%;
   height: 100%; */
