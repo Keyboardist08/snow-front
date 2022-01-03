@@ -23,17 +23,17 @@
     font-family: 'Nunito Sans', sans-serif !important;
   }
 
-  @media screen and (max-width: 600px) {
-    .title img {
-      height: calc(100% - 20%);
-      width: calc(100% - 20%);
+  @media screen and (max-width: 400px) {
+    .title h1 {
+      height: calc(100vh - 30%);
+      width: calc(100vw - 30%);
     }
   }
   .title {
     position: absolute;
     /* display: flex; */
-    /* flex-direction: row-reverse; */
-    top: 12px;
+    /* flex-direction: row; */
+    /* align-items: center; */
     left: 60px;
     /* right: 20px; */
     z-index: 1;
@@ -42,22 +42,28 @@
 
   .title h1 {
     font-family: 'Frozbite';
-    color: #48dbfb;
+    color: #53cbfa;
     letter-spacing: 3px;
-    font-size: 32px;
-    background: rgba(0, 0, 0, 0.7);
+    font-size: 30px;
+    /* background: rgba(0, 0, 0, 0.7); */
     padding: 8px;
     margin-bottom: 0;
     border-top-left-radius: 6px;
   }
 
+  .title-info {
+    display: flex;
+    align-items: start;
+  }
+ 
   .title p {
-    color: white;
+    color: rgb(0, 0, 0);
     font-weight: 700;
-    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    /* background: rgba(0, 0, 0, 0.7); */
     padding: 8px;
     /* margin-top: 0; */
-    border-bottom-left-radius: 6px;
+    /* border-bottom-left-radius: 6px; */
   }
 
   #locate-btn {
@@ -80,14 +86,14 @@
       monospace;
   }
 
-  .App {
+  /* .App {
     background-color: rgb(224, 224, 224);
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 20px;
-  }
+  } */
 
   #map-container {
     margin: 0;
@@ -95,29 +101,28 @@
     position: static;
   }
 
-  .map {
+  /* .map {
     z-index: 0;
-  }
-  .form-horizontal {
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-  input {
+  } */
+
+  .input {
+    margin: 5px;
     height: 38px;
-    width: 250px;
+    width: 200px;
     padding-left: 10px;
     border-radius: 6px;
   }
-  #input-address {
-    /* box-shadow: 10px 5px 5px rgb(107, 105, 105); */
-  }
+
   #button {
-    height: 36px;
-    /* box-shadow: 10px 5px 5px rgb(107, 105, 105); */
-    margin-left: 10px;
+    height: 37px;
+    border-radius: 6px;
   }
 
+  #infoButton {
+    margin-top: 10px;
+    border-radius: 6px;
+  
+  }
   /* Popup style ---------------------------------------- */
   .popup-box {
     position: fixed;
@@ -168,7 +173,6 @@
     border-style: double;
     height: 55px;
     background-color: rgba(231, 234, 238, 0.863);
-    /* background-color: rgba(0, 0, 0, 0.7); */
     display: flex;
     justify-content: center;
     position: fixed;

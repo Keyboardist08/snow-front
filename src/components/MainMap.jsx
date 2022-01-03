@@ -9,11 +9,11 @@ import {
   Popup,
   MapConsumer,
 } from 'react-leaflet';
-import { useState, useEffect } from 'react';
-import { FaSnowflake } from 'react-icons/fa';
+import { useState } from 'react';
 import '../resources/Frozbite-6YvAv.ttf';
 import aim from '../resources/aim.png';
 import { render } from '@testing-library/react';
+import UserManual from './UserManual';
 
 // import SeedData from './map-seed.json';
 
@@ -125,11 +125,10 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
   return (
     <div>
       <div className='title'>
-        <h1>SNOW SCOOPER</h1>
-        <p>
-          Can't shovel all that snow outside? Ask a neighbor for some help! For
-          anyone else looking to help, use the map below to locate requests.
-        </p>
+        <div className='title-info'>
+        <h1>SNOW SCOOPER</h1> 
+        <UserManual/>
+        </div>
         <input
           className='input'
           placeholder='ex: 123 Main St 19147'
@@ -150,6 +149,7 @@ function MainMap({ markerData, setMarkerData, center, setCenter }) {
         >
           <i class='bi bi-geo-alt-fill'></i>
         </Button>
+       
       </div>
       <MapContainer
         id='map-container'
